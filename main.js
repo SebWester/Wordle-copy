@@ -5,8 +5,9 @@ let randomWord;
 let randWordArr = [];
 
 /* All imports */
-import { charArray, totalChars, handleGuessInput } from "./playerFunc.js";
+import { charArray, totalChars, row, handleGuessInput } from "./playerFunc.js";
 
+// Getting random word
 async function getRandomWord() {
   const response = await fetch("wordle.json");
   const data = await response.json();
@@ -18,6 +19,7 @@ async function getRandomWord() {
   }
 }
 
+// Main function
 async function main() {
   try {
     await getRandomWord();
@@ -27,9 +29,9 @@ async function main() {
     */
 
     // TESTING CODE
-    console.log(randomWord);
-    console.log("randomWordArr:");
-    console.log(randWordArr);
+    console.log(randomWord); // <--- REMOVE WHEN DONE
+    console.log("randomWordArr:"); // <--- REMOVE WHEN DONE
+    console.log(randWordArr); // <--- REMOVE WHEN DONE
 
     handleGuessInput(randomWord, charArray);
   } catch (err) {

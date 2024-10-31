@@ -1,6 +1,7 @@
 // Fill this array with players guesses
 export let charArray = [];
 export let totalChars = 0;
+export let row = 0; // <-- Max 6 rows
 
 // Ignore these keys
 const ignoreNums = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
@@ -20,13 +21,16 @@ export function handleGuessInput(word) {
       charArray.pop();
       totalChars = Math.max(0, totalChars - 1);
     } else if (key === "Enter" && totalChars === word.length) {
-      console.log("Check if players guess = random word"); // <--- REMOVE LATER
+      console.log("Check if players guess = random word"); // <--- REMOVE WHEN DONE
       charArray = [];
       totalChars = 0;
+      // Increment row for a new round
+      row++;
+      console.log(row); // <--- REMOVE WHEN DONE
     } else if (key.length === 1 && totalChars < word.length) {
       charArray.push(key);
       totalChars++;
-      console.log(charArray); // <--- REMOVE LATER
+      console.log(charArray); // <--- REMOVE WHEN DONE
     }
   });
 }
