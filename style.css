@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+}
+
+#mainContainer {
+  width: 60vw;
+  height: 100vh;
+  margin: auto;
+  border: 1px solid darkgray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#topDiv {
+  margin: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid darkgray;
+}
+
+#gameBoard {
+  flex-direction: column;
+}
