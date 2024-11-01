@@ -1,4 +1,4 @@
-const playersGuesses = document.getElementById("playersGuesses");
+const guessContainer = document.getElementById("guessContainer");
 
 // Variable and array for random word
 let randomWord;
@@ -19,6 +19,29 @@ async function getRandomWord() {
   }
 }
 
+// Creating 6 rows for each round with tiles based on random word length
+let totalRows = 0;
+
+const rowId = ["a", "b", "c", "d", "e", "f"];
+
+function createRows(word) {
+  for (let i = totalRows; i < 6; i++) {
+    const row = document.createElement("div");
+    row.setAttribute("id", rowId[i]);
+    row.classList.add("row");
+
+    // Creating tiles for each letter
+    for (let j = 0; j < word.length; j++) {
+      const tile = document.createElement("div");
+      tile.setAttribute("id", j);
+      tile.classList.add("tile");
+
+      row.appendChild(tile);
+    }
+    guessContainer.appendChild(row);
+  }
+}
+
 // Main function
 async function main() {
   try {
@@ -33,7 +56,8 @@ async function main() {
     console.log("randomWordArr:"); // <--- REMOVE WHEN DONE
     console.log(randWordArr); // <--- REMOVE WHEN DONE
 
-    handleGuessInput(randomWord, charArray);
+    createRows(randomWord);
+    handleGuessInput(randomWord);
   } catch (err) {
     console.log("Something went wrong: " + err);
   }

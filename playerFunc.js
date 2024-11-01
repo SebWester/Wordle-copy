@@ -11,6 +11,7 @@ const ignoreChars = ["<", ">", ",", ";", ".", ":", "-", "_", "'", "*", "§"];
 export function handleGuessInput(word) {
   document.addEventListener("keydown", (event) => {
     const key = event.key;
+    let fillTile = document.getElementById(`${totalChars}`);
 
     // If key = forbidden key, try again!
     if (ignoreNums.includes(key) || ignoreChars.includes(key)) {
@@ -19,7 +20,9 @@ export function handleGuessInput(word) {
 
     if (key === "Backspace") {
       charArray.pop();
+      fillTile.textContent = ""; // FIX THIS
       totalChars = Math.max(0, totalChars - 1);
+      console.log(charArray); // <--- REMOVE WHEN DONE
     } else if (key === "Enter" && totalChars === word.length) {
       console.log("Check if players guess = random word"); // <--- REMOVE WHEN DONE
       charArray = [];
@@ -28,6 +31,8 @@ export function handleGuessInput(word) {
       row++;
       console.log(row); // <--- REMOVE WHEN DONE
     } else if (key.length === 1 && totalChars < word.length) {
+      fillTile.innerText = key;
+
       charArray.push(key);
       totalChars++;
       console.log(charArray); // <--- REMOVE WHEN DONE

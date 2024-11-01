@@ -21,3 +21,19 @@
 #gameBoard {
   flex-direction: column;
 }
+
+.row {
+  display: flex;
+}
+
+.tile {
+  width: 50px;
+  height: 50px;
+  border: 1px solid darkgray;
+  margin: 10px 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+}
