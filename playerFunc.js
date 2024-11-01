@@ -1,9 +1,10 @@
 // Fill this array with players guesses
 export let charArray = [];
-export let totalChars = 0;
+// export let totalChars = 0;
 export let currentRow = 0; // <-- Max 6 rows
 
 import { rowId } from "./main.js";
+let totalChars = 0;
 
 // Ignore these keys
 const ignoreNums = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];

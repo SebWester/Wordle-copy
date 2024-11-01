@@ -5,12 +5,7 @@ let randomWord;
 let randWordArr = [];
 
 /* All imports */
-import {
-  charArray,
-  totalChars,
-  currentRow,
-  handleGuessInput,
-} from "./playerFunc.js";
+import { handleGuessInput } from "./playerFunc.js";
 
 import { createKeyboard } from "./virtualKeyboard.js";
 
@@ -64,8 +59,8 @@ async function main() {
     console.log(randWordArr); // <--- REMOVE WHEN DONE
 
     createRows(randomWord);
+    createKeyboard(randomWord);
     handleGuessInput(randomWord);
-    createKeyboard();
   } catch (err) {
     console.log("Something went wrong: " + err);
   }
