@@ -5,7 +5,12 @@ let randomWord;
 let randWordArr = [];
 
 /* All imports */
-import { charArray, totalChars, row, handleGuessInput } from "./playerFunc.js";
+import {
+  charArray,
+  totalChars,
+  currentRow,
+  handleGuessInput,
+} from "./playerFunc.js";
 
 // Getting random word
 async function getRandomWord() {
@@ -22,7 +27,7 @@ async function getRandomWord() {
 // Creating 6 rows for each round with tiles based on random word length
 let totalRows = 0;
 
-const rowId = ["a", "b", "c", "d", "e", "f"];
+export const rowId = ["a", "b", "c", "d", "e", "f"];
 
 function createRows(word) {
   for (let i = totalRows; i < 6; i++) {
