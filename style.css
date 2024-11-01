@@ -37,3 +37,52 @@
   align-items: center;
   font-size: 2em;
 }
+
+/* Virtual keyboard */
+#keyboard {
+  margin-top: 30px;
+}
+
+#keyboardTopRow,
+#keyboardMidRow,
+#keyboardBottomRow {
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.alphaKey {
+  width: 40px;
+  height: 40px;
+  background-color: lightgray;
+  border: 1px solid darkgray;
+  border-radius: 8px;
+  font-size: 1.5em;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3px;
+}
+
+.alphaKey:hover,
+#returnKey:hover {
+  box-shadow: 2px 5px 16px darkgray;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#returnKey,
+#enterKey {
+  width: 70px;
+  height: 40px;
+  background-color: lightgray;
+  border: 1px solid darkgray;
+  border-radius: 8px;
+  font-size: 1.5em;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3px;
+}

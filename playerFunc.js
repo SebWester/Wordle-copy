@@ -7,7 +7,20 @@ import { rowId } from "./main.js";
 
 // Ignore these keys
 const ignoreNums = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-const ignoreChars = ["<", ">", ",", ";", ".", ":", "-", "_", "'", "*", "§"];
+const ignoreChars = [
+  "<",
+  ">",
+  ",",
+  ";",
+  ".",
+  ":",
+  "-",
+  "_",
+  "'",
+  "*",
+  "§",
+  " ",
+];
 
 // Fill charArray with players guesses
 export function handleGuessInput(word) {

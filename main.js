@@ -12,6 +12,8 @@ import {
   handleGuessInput,
 } from "./playerFunc.js";
 
+import { createKeyboard } from "./virtualKeyboard.js";
+
 // Getting random word
 async function getRandomWord() {
   const response = await fetch("wordle.json");
@@ -63,6 +65,7 @@ async function main() {
 
     createRows(randomWord);
     handleGuessInput(randomWord);
+    createKeyboard();
   } catch (err) {
     console.log("Something went wrong: " + err);
   }
