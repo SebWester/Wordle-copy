@@ -4,7 +4,7 @@ export let charArray = [];
 export let currentRow = 0; // <-- Max 6 rows
 
 import { rowId, randWordArr } from "./main.js";
-import { compareWordArrs } from "./checkWin.js";
+// import { compareWordArrs } from "./checkWin.js";
 
 let totalChars = 0;
 
@@ -92,7 +92,7 @@ const keyboardBottomRow = document.getElementById("keyboardBottomRow");
 const allKeys = [
   ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
   ["a", "s", "d", "f", "g", "h", "j", "k", "l", "z"],
-  ["return", "x", "c", "v", "b", "n", "m", "enter"],
+  ["return", "z", "x", "c", "v", "b", "n", "m", "enter"],
 ];
 
 export function createKeyboard(word) {
@@ -197,7 +197,7 @@ export function createKeyboard(word) {
   // Enter key
   let enterKey = document.createElement("div");
   enterKey.setAttribute("id", "enterKey");
-  enterKey.textContent = allKeys[2][7];
+  enterKey.textContent = allKeys[2][8];
 
   enterKey.addEventListener("click", () => {
     if (totalChars === word.length) {
@@ -215,4 +215,33 @@ export function createKeyboard(word) {
   });
 
   keyboardBottomRow.appendChild(enterKey);
+}
+
+/*
+    CHECK IF GUESS IS CORRECT 
+*/
+
+function compareWordArrs(arr1, arr2) {
+  for (let i = 0; i < arr1.length; i++) {
+    let fillRow = document.getElementById(rowId[currentRow]);
+    // let fillTile = document.getElementById(`${totalChars}`);
+    let fillTile = fillRow ? fillRow.querySelectorAll(".tile")[i] : null;
+
+    if (arr1[i] === arr2[i]) {
+      console.log("index: " + i); // <--- REMOVE WHEN DONE
+      console.log("Letter in random word AND right index \n"); // <--- REMOVE WHEN DONE
+      fillTile.classList.add("tileFlipGreen");
+    } else {
+      if (arr1.includes(arr2[i])) {
+        console.log("index: " + i); // <--- REMOVE WHEN DONE
+        console.log("Letter in random word BUT not right index\n"); // <--- REMOVE WHEN DONE
+        fillTile.classList.add("tileFlipOrange");
+      } else {
+        console.log("index: " + i); // <--- REMOVE WHEN DONE
+        console.log("Letter not in random word\n"); // <--- REMOVE WHEN DONE
+        fillTile.classList.add("tileFlipGray");
+        continue;
+      }
+    }
+  }
 }
