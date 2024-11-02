@@ -49,10 +49,10 @@ export function handleGuessInput(word) {
     } else if (key === "Enter" && totalChars === word.length) {
       // Check if word is correct when user presses enter
       console.log("Check if players guess = random word"); // <--- REMOVE WHEN DONE
-      charArray = [];
-      totalChars = 0;
       // Increment row for a new round
       currentRow++;
+      totalChars = 0;
+      charArray = [];
       console.log(currentRow); // <--- REMOVE WHEN DONE
     } else if (key.length === 1 && totalChars < word.length) {
       fillTile.innerText = key;
@@ -90,7 +90,7 @@ export function createKeyboard(word) {
     // Pretty much same code as in playerFunc.js
     alphaKey.addEventListener("click", () => {
       let fillRow = document.getElementById(rowId[currentRow]);
-
+      // let fillTile = document.getElementById(`${totalChars}`);
       let fillTile = fillRow
         ? fillRow.querySelectorAll(".tile")[totalChars]
         : null;
@@ -113,7 +113,7 @@ export function createKeyboard(word) {
     alphaKey.addEventListener("click", () => {
       if (totalChars < word.length) {
         let fillRow = document.getElementById(rowId[currentRow]);
-
+        // let fillTile = document.getElementById(`${totalChars}`);
         let fillTile = fillRow
           ? fillRow.querySelectorAll(".tile")[totalChars]
           : null;
@@ -139,7 +139,7 @@ export function createKeyboard(word) {
   returnKey.addEventListener("click", () => {
     if (totalChars > 0) {
       let fillRow = document.getElementById(rowId[currentRow]);
-
+      // let fillTile = document.getElementById(`${totalChars}`);
       let fillTile = fillRow
         ? fillRow.querySelectorAll(".tile")[totalChars]
         : null;
@@ -162,7 +162,7 @@ export function createKeyboard(word) {
     alphaKey.addEventListener("click", () => {
       if (totalChars < word.length) {
         let fillRow = document.getElementById(rowId[currentRow]);
-
+        // let fillTile = document.getElementById(`${totalChars}`);
         let fillTile = fillRow
           ? fillRow.querySelectorAll(".tile")[totalChars]
           : null;
@@ -187,7 +187,7 @@ export function createKeyboard(word) {
   enterKey.addEventListener("click", () => {
     if (totalChars === word.length) {
       let fillRow = document.getElementById(rowId[currentRow]);
-
+      // let fillTile = document.getElementById(`${totalChars}`);
       let fillTile = fillRow
         ? fillRow.querySelectorAll(".tile")[totalChars]
         : null;

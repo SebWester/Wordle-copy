@@ -42,6 +42,10 @@
 /* Virtual keyboard */
 #keyboard {
   margin-top: 40px;
+  border: 1px solid lightgray;
+  border-radius: 6px;
+  box-shadow: inset 1px -1px 15px darkgray;
+  padding: 10px;
 }
 
 #keyboardTopRow,
