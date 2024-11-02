@@ -2,10 +2,11 @@ const guessContainer = document.getElementById("guessContainer");
 
 // Variable and array for random word
 let randomWord;
-let randWordArr = [];
+export let randWordArr = [];
 
 /* All imports */
 import { handleGuessInput, createKeyboard } from "./playerFunc.js";
+// import { logWin } from "./checkWin.js";
 
 // import { createKeyboard } from "./virtualKeyboard.js";
 
