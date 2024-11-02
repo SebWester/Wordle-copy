@@ -128,7 +128,6 @@ export function createKeyboard(word) {
     alphaKey.addEventListener("click", () => {
       if (totalChars < word.length) {
         let fillRow = document.getElementById(rowId[currentRow]);
-        // let fillTile = document.getElementById(`${totalChars}`);
         let fillTile = fillRow
           ? fillRow.querySelectorAll(".tile")[totalChars]
           : null;
@@ -154,7 +153,6 @@ export function createKeyboard(word) {
   returnKey.addEventListener("click", () => {
     if (totalChars > 0) {
       let fillRow = document.getElementById(rowId[currentRow]);
-      // let fillTile = document.getElementById(`${totalChars}`);
       let fillTile = fillRow
         ? fillRow.querySelectorAll(".tile")[totalChars]
         : null;
@@ -177,7 +175,6 @@ export function createKeyboard(word) {
     alphaKey.addEventListener("click", () => {
       if (totalChars < word.length) {
         let fillRow = document.getElementById(rowId[currentRow]);
-        // let fillTile = document.getElementById(`${totalChars}`);
         let fillTile = fillRow
           ? fillRow.querySelectorAll(".tile")[totalChars]
           : null;
@@ -222,6 +219,10 @@ export function createKeyboard(word) {
 */
 
 function compareWordArrs(arr1, arr2) {
+  /*
+    arr1 = randomWarArr
+    arr2 = charArray
+  */
   for (let i = 0; i < arr1.length; i++) {
     let fillRow = document.getElementById(rowId[currentRow]);
     // let fillTile = document.getElementById(`${totalChars}`);
