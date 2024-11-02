@@ -51,14 +51,13 @@ export function handleGuessInput(word) {
     } else if (key === "Enter" && totalChars === word.length) {
       // Check if word is correct when user presses enter
       console.log("Check if players guess = random word"); // <--- REMOVE WHEN DONE
-<<<<<<< HEAD
-=======
+
       // TESTING checkWin func!
       compareWordArrs(randWordArr, charArray);
 
       charArray = [];
       totalChars = 0;
->>>>>>> checkWinner
+
       // Increment row for a new round
       currentRow++;
       totalChars = 0;
@@ -197,16 +196,9 @@ export function createKeyboard(word) {
   enterKey.addEventListener("click", () => {
     if (totalChars === word.length) {
       let fillRow = document.getElementById(rowId[currentRow]);
-<<<<<<< HEAD
-      // let fillTile = document.getElementById(`${totalChars}`);
-      let fillTile = fillRow
-        ? fillRow.querySelectorAll(".tile")[totalChars]
-        : null;
-=======
 
       // Check all letters
       compareWordArrs(randWordArr, charArray);
->>>>>>> checkWinner
 
       // Check if word is correct when user presses enter
       console.log("Check if players guess = random word"); // <--- REMOVE WHEN DONE
