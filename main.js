@@ -6,9 +6,6 @@ export let randWordArr = [];
 
 /* All imports */
 import { handleGuessInput, createKeyboard } from "./playerFunc.js";
-// import { logWin } from "./checkWin.js";
-
-// import { createKeyboard } from "./virtualKeyboard.js";
 
 // Getting random word
 async function getRandomWord() {

@@ -23,6 +23,12 @@ const ignoreChars = [
   "*",
   "§",
   " ",
+  "å",
+  "Å",
+  "ä",
+  "Ä",
+  "ö",
+  "Ö",
 ];
 
 // Fill charArray with players guesses
@@ -66,7 +72,7 @@ export function handleGuessInput(word) {
     } else if (key.length === 1 && totalChars < word.length) {
       fillTile.innerText = key;
 
-      charArray.push(key);
+      charArray.push(key.toLowerCase()); // Making sure is lowercase before pushed
       totalChars++;
       console.log(charArray); // <--- REMOVE WHEN DONE
     }
@@ -166,7 +172,7 @@ export function createKeyboard(word) {
   for (let i = 1; i < allKeys[2].length - 1; i++) {
     alphaKey = document.createElement("div");
     alphaKey.classList.add("alphaKey");
-    alphaKey.textContent = allKeys[1][i];
+    alphaKey.textContent = allKeys[2][i];
 
     alphaKey.addEventListener("click", () => {
       if (totalChars < word.length) {
@@ -176,7 +182,7 @@ export function createKeyboard(word) {
           ? fillRow.querySelectorAll(".tile")[totalChars]
           : null;
 
-        fillTile.textContent = allKeys[1][i];
+        fillTile.textContent = allKeys[2][i];
         charArray.push(allKeys[2][i]);
         totalChars++;
         console.log(charArray); // <--- REMOVE WHEN DONE
@@ -195,8 +201,6 @@ export function createKeyboard(word) {
 
   enterKey.addEventListener("click", () => {
     if (totalChars === word.length) {
-      let fillRow = document.getElementById(rowId[currentRow]);
-
       // Check all letters
       compareWordArrs(randWordArr, charArray);
 
