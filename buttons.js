@@ -8,7 +8,7 @@ const howToPlay = document.getElementById("howToPlay");
 const darkTheme = document.getElementById("darkTheme");
 const colorMode = document.getElementById("colorMode");
 
-export function changeTheme(sum) {
+export function changeTheme(sum, tiles) {
   if (sum % 2 === 0) {
     // bkg color
     body.style.backgroundColor = "whitesmoke";
@@ -26,6 +26,11 @@ export function changeTheme(sum) {
     headerTxt.style.color = "white";
     icons.forEach((icon) => {
       icon.style.color = "white";
+    });
+
+    // Tile font color
+    tiles.forEach((tile) => {
+      tile.style.color = "white";
     });
   }
 }

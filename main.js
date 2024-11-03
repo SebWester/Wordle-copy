@@ -65,8 +65,12 @@ async function main() {
     handleGuessInput(randomWord);
 
     themeButton.addEventListener("click", () => {
+      let fillRow = document.getElementById(rowId[currentRow]);
+      // let fillTile = document.getElementById(`${totalChars}`);
+      let fillTile = fillRow ? fillRow.querySelectorAll(".tile") : null;
+
       themeSum++;
-      changeTheme(themeSum);
+      changeTheme(themeSum, fillTile);
       console.log(themeSum);
     });
   } catch (err) {
