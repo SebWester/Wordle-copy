@@ -36,7 +36,8 @@
 }
 
 #topLeft {
-  justify-content: flex-end;
+  justify-content: flex-start;
+  margin-left: 10px;
 }
 
 #topMiddle {
@@ -52,6 +53,14 @@
   width: calc(50% / 2);
   display: flex;
   justify-content: flex-start;
+}
+
+#topSin {
+  margin-left: 10px;
+}
+
+#topDx {
+  margin-left: 20px;
 }
 
 .fa-xl {
