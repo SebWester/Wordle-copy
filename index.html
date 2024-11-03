@@ -6,17 +6,42 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
     <script type="module" src="main.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/291b702101.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
   </head>
-  <body>
+  <body id="docBody">
     <div id="mainContainer">
       <div id="topDiv">
-        <h1>Wordle</h1>
-        <!-- BUTTONS FOR DARK THEME AND COLORBLIND MODE  -->
+        <div id="topLeft">
+          <div id="howToPlay">
+            <i class="fa-regular fa-circle-question fa-xl"></i>
+          </div>
+        </div>
+
+        <div id="topMiddle"><h1>Wordle</h1></div>
+
+        <div id="topRight">
+          <div id="topSin">
+            <div id="darkTheme">
+              <i class="fa-solid fa-circle-half-stroke fa-xl"></i>
+            </div>
+          </div>
+          <div id="topDx">
+            <div id="colorMode">
+              <i class="fa-solid fa-eye-low-vision fa-xl"></i>
+            </div>
+          </div>
+        </div>
       </div>
+
       <div id="gameBoard">
         <div id="correctWord"></div>
         <div id="guessContainer"></div>
       </div>
+
       <div id="keyboard">
         <div id="keyboardTopRow"></div>
         <div id="keyboardMidRow"></div>

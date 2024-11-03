@@ -1,3 +1,4 @@
+const themeButton = document.getElementById("darkTheme");
 const guessContainer = document.getElementById("guessContainer");
 
 // Variable and array for random word
@@ -6,6 +7,9 @@ export let randWordArr = [];
 
 /* All imports */
 import { handleGuessInput, createKeyboard } from "./playerFunc.js";
+import { changeTheme } from "./buttons.js";
+// Sum for tracking dark theme
+let themeSum = 0;
 
 // Getting random word
 async function getRandomWord() {
@@ -59,6 +63,12 @@ async function main() {
     createRows(randomWord);
     createKeyboard(randomWord);
     handleGuessInput(randomWord);
+
+    themeButton.addEventListener("click", () => {
+      themeSum++;
+      changeTheme(themeSum);
+      console.log(themeSum);
+    });
   } catch (err) {
     console.log("Something went wrong: " + err);
   }

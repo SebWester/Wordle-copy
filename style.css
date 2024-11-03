@@ -2,20 +2,65 @@
   margin: 0;
 }
 
+#docBody {
+  background-color: whitesmoke;
+}
+
 #mainContainer {
   width: 60vw;
   height: 100vh;
+  background-color: white;
   margin: auto;
-  border: 1px solid darkgray;
+  border-left: 1px solid darkgray;
+  border-right: 1px solid darkgray;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 #topDiv {
+  width: 50vh;
   margin: 10px;
   padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
   border-bottom: 1px solid darkgray;
+}
+
+#topLeft,
+#topMiddle,
+#topRight {
+  width: calc(100% / 3);
+  display: flex;
+  align-items: center;
+}
+
+#topLeft {
+  justify-content: flex-end;
+}
+
+#topMiddle {
+  justify-content: center;
+}
+
+/* #topRight {
+  justify-content: flex-start;
+} */
+
+#topSin,
+#topDx {
+  width: calc(50% / 2);
+  display: flex;
+  justify-content: flex-start;
+}
+
+.fa-xl {
+  margin: auto 15px;
+}
+
+.fa-xl:hover {
+  font-size: 1.7em;
+  cursor: pointer;
 }
 
 #gameBoard {
