@@ -71,6 +71,7 @@ export function handleGuessInput(word) {
       console.log(currentRow); // <--- REMOVE WHEN DONE
     } else if (key.length === 1 && totalChars < word.length) {
       fillTile.innerText = key;
+      fillTile.classList.add("charJump");
 
       charArray.push(key.toLowerCase()); // Making sure is lowercase before pushed
       totalChars++;
@@ -111,6 +112,7 @@ export function createKeyboard(word) {
         : null;
 
       fillTile.textContent = allKeys[0][i];
+      fillTile.classList.add("charJump");
       charArray.push(allKeys[0][i]);
       totalChars++;
       console.log(charArray); // <--- REMOVE WHEN DONE
@@ -133,6 +135,7 @@ export function createKeyboard(word) {
           : null;
 
         fillTile.textContent = allKeys[1][i];
+        fillTile.classList.add("charJump");
         charArray.push(allKeys[1][i]);
         totalChars++;
         console.log(charArray); // <--- REMOVE WHEN DONE
@@ -180,6 +183,7 @@ export function createKeyboard(word) {
           : null;
 
         fillTile.textContent = allKeys[2][i];
+        fillTile.classList.add("charJump");
         charArray.push(allKeys[2][i]);
         totalChars++;
         console.log(charArray); // <--- REMOVE WHEN DONE

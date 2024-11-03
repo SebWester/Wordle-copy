@@ -7,7 +7,7 @@ export let randWordArr = [];
 
 /* All imports */
 import { handleGuessInput, createKeyboard, currentRow } from "./playerFunc.js";
-import { changeTheme } from "./buttons.js";
+import { showHowToPlay, changeTheme } from "./buttons.js";
 // Sum for tracking dark theme
 let themeSum = 0;
 
@@ -64,6 +64,8 @@ async function main() {
     createKeyboard(randomWord);
     handleGuessInput(randomWord);
 
+    showHowToPlay();
+    // Change theme
     themeButton.addEventListener("click", () => {
       themeSum++;
       changeTheme(themeSum);

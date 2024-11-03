@@ -1,4 +1,5 @@
 const body = document.getElementById("docBody");
+const infoDiv = document.getElementById("infoDiv");
 const mainContainer = document.getElementById("mainContainer");
 const headerTxt = document.querySelector("h1");
 const icons = document.querySelectorAll(".fa-xl");
@@ -7,8 +8,26 @@ const icons = document.querySelectorAll(".fa-xl");
 const howToPlay = document.getElementById("howToPlay");
 const darkTheme = document.getElementById("darkTheme");
 const colorMode = document.getElementById("colorMode");
+const returnToGame = document.getElementById("returnBtn");
 
-export function changeTheme(sum, fillTile) {
+/*
+  Function for displaying info
+*/
+
+export function showHowToPlay() {
+  howToPlay.addEventListener("click", () => {
+    infoDiv.style.display = "block";
+  });
+
+  returnToGame.addEventListener("click", () => {
+    infoDiv.style.display = "none";
+  });
+}
+
+/*
+  Function for changing theme
+*/
+export function changeTheme(sum) {
   const rows = document.querySelectorAll(".row");
 
   if (sum % 2 === 0) {
