@@ -8,7 +8,9 @@ const howToPlay = document.getElementById("howToPlay");
 const darkTheme = document.getElementById("darkTheme");
 const colorMode = document.getElementById("colorMode");
 
-export function changeTheme(sum, tiles) {
+export function changeTheme(sum, fillTile) {
+  const rows = document.querySelectorAll(".row");
+
   if (sum % 2 === 0) {
     // bkg color
     body.style.backgroundColor = "whitesmoke";
@@ -17,6 +19,16 @@ export function changeTheme(sum, tiles) {
     headerTxt.style.color = "black";
     icons.forEach((icon) => {
       icon.style.color = "black";
+    });
+
+    // Tile font color
+    rows.forEach((row) => {
+      const tiles = row ? row.querySelectorAll(".tile") : null;
+
+      // Tile font color
+      tiles.forEach((tile) => {
+        tile.style.color = "black";
+      });
     });
   } else if (sum % 2 !== 0) {
     // bkg color
@@ -28,9 +40,13 @@ export function changeTheme(sum, tiles) {
       icon.style.color = "white";
     });
 
-    // Tile font color
-    tiles.forEach((tile) => {
-      tile.style.color = "white";
+    rows.forEach((row) => {
+      const tiles = row ? row.querySelectorAll(".tile") : null;
+
+      // Tile font color
+      tiles.forEach((tile) => {
+        tile.style.color = "white";
+      });
     });
   }
 }

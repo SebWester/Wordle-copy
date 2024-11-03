@@ -6,7 +6,7 @@ let randomWord;
 export let randWordArr = [];
 
 /* All imports */
-import { handleGuessInput, createKeyboard } from "./playerFunc.js";
+import { handleGuessInput, createKeyboard, currentRow } from "./playerFunc.js";
 import { changeTheme } from "./buttons.js";
 // Sum for tracking dark theme
 let themeSum = 0;
@@ -65,13 +65,10 @@ async function main() {
     handleGuessInput(randomWord);
 
     themeButton.addEventListener("click", () => {
-      let fillRow = document.getElementById(rowId[currentRow]);
-      // let fillTile = document.getElementById(`${totalChars}`);
-      let fillTile = fillRow ? fillRow.querySelectorAll(".tile") : null;
-
       themeSum++;
-      changeTheme(themeSum, fillTile);
-      console.log(themeSum);
+      changeTheme(themeSum);
+      console.log(themeSum); // <--- REMOVE WHEN DONE
+      console.log(currentRow); // <--- REMOVE WHEN DONE
     });
   } catch (err) {
     console.log("Something went wrong: " + err);
