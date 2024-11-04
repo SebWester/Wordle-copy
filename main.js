@@ -7,12 +7,7 @@ let allWords;
 export let randWordArr = [];
 
 /* All imports */
-import {
-  handleGuessInput,
-  createKeyboard,
-  currentRow,
-  charArray,
-} from "./playerFunc.js";
+import { handleGuessInput, createKeyboard } from "./playerFunc.js";
 import { showHowToPlay, changeTheme } from "./buttons.js";
 // Sum for tracking dark theme
 let themeSum = 0;
@@ -69,7 +64,7 @@ async function main() {
     // console.log(allWords); // <--- REMOVE WHEN DONE
 
     createRows(randomWord);
-    createKeyboard(randomWord);
+    createKeyboard(randomWord, allWords);
     handleGuessInput(randomWord, allWords);
 
     showHowToPlay();

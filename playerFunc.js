@@ -98,7 +98,7 @@ const allKeys = [
   ["return", "z", "x", "c", "v", "b", "n", "m", "enter"],
 ];
 
-export function createKeyboard(word) {
+export function createKeyboard(word, wordList) {
   // Top row of keyboard
   for (let i = 0; i < allKeys[0].length; i++) {
     alphaKey = document.createElement("div");
@@ -113,11 +113,13 @@ export function createKeyboard(word) {
         ? fillRow.querySelectorAll(".tile")[totalChars]
         : null;
 
-      fillTile.textContent = allKeys[0][i];
-      fillTile.classList.add("charJump");
-      charArray.push(allKeys[0][i]);
-      totalChars++;
-      console.log(charArray); // <--- REMOVE WHEN DONE
+      if (totalChars < word.length) {
+        fillTile.textContent = allKeys[0][i];
+        fillTile.classList.add("charJump");
+        charArray.push(allKeys[0][i]);
+        totalChars++;
+        console.log(charArray); // <--- REMOVE WHEN DONE
+      }
     });
 
     keyboardTopRow.appendChild(alphaKey);
@@ -205,7 +207,7 @@ export function createKeyboard(word) {
   enterKey.addEventListener("click", () => {
     if (totalChars === word.length) {
       // Check all letters
-      compareWordArrs(randWordArr, charArray);
+      compareWordArrs(randWordArr, charArray, wordList);
 
       // Check if word is correct when user presses enter
       console.log("Check if players guess = random word"); // <--- REMOVE WHEN DONE
@@ -249,6 +251,8 @@ function compareWordArrs(arr1, arr2, words) {
     notRight.textContent = "Word not found. Try again";
 
     gameBoard.appendChild(notRight);
+    // currentRow--;
+    totalChars = 0;
 
     return;
   }
