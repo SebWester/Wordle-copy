@@ -8,7 +8,7 @@ const howToPlay = document.getElementById("howToPlay");
 const darkTheme = document.getElementById("darkTheme");
 const colorMode = document.getElementById("colorMode");
 
-export function changeTheme(sum, fillTile) {
+export function changeTheme(sum) {
   const rows = document.querySelectorAll(".row");
 
   if (sum % 2 === 0) {

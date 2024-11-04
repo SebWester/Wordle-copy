@@ -218,6 +218,14 @@ export function createKeyboard(word) {
     CHECK IF GUESS IS CORRECT 
 */
 
+const testThisButton = document.getElementById("colorMode");
+let colormodeOn = false;
+console.log(colormodeOn);
+testThisButton.addEventListener("click", () => {
+  colormodeOn = !colormodeOn;
+  console.log(colormodeOn);
+});
+
 function compareWordArrs(arr1, arr2) {
   /*
     arr1 = randomWarArr
@@ -231,12 +239,22 @@ function compareWordArrs(arr1, arr2) {
     if (arr1[i] === arr2[i]) {
       console.log("index: " + i); // <--- REMOVE WHEN DONE
       console.log("Letter in random word AND right index \n"); // <--- REMOVE WHEN DONE
-      fillTile.classList.add("tileFlipGreen");
+
+      if (!colormodeOn) {
+        fillTile.classList.add("tileFlipGreen");
+      } else if (colormodeOn) {
+        fillTile.classList.add("tileFlipBlue");
+      }
     } else {
       if (arr1.includes(arr2[i])) {
         console.log("index: " + i); // <--- REMOVE WHEN DONE
         console.log("Letter in random word BUT not right index\n"); // <--- REMOVE WHEN DONE
-        fillTile.classList.add("tileFlipOrange");
+
+        if (!colormodeOn) {
+          fillTile.classList.add("tileFlipOrange");
+        } else if (colormodeOn) {
+          fillTile.classList.add("tileFlipYellow");
+        }
       } else {
         console.log("index: " + i); // <--- REMOVE WHEN DONE
         console.log("Letter not in random word\n"); // <--- REMOVE WHEN DONE
