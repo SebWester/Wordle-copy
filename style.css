@@ -50,16 +50,52 @@
 }
 
 #ex2 {
-  background-color: rgba(255, 166, 0, 0.7);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 166, 0, 0.7) 50%,
+    rgba(255, 251, 11, 0.7) 50%
+  );
 }
 
 #ex3 {
-  background-color: rgba(49, 228, 49, 0.7);
+  background: linear-gradient(
+    135deg,
+    rgba(49, 228, 49, 0.7) 50%,
+    rgba(102, 174, 255, 0.7) 50%
+  );
 }
 
 .infoTxt {
   font-size: 1.3em;
   margin-left: 20px;
+}
+
+.btnInfo {
+  display: flex;
+  margin: 40px auto;
+}
+
+.iconText {
+  font-size: 1.3em;
+  margin-left: 20px;
+}
+
+#infoIcon1 {
+  font-size: 2em;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#infoIcon2 {
+  font-size: 2em;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+#infoIcon1:hover,
+#infoIcon2:hover {
+  font-size: 2em;
+  cursor: default;
 }
 
 #returnBtn {

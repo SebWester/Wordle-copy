@@ -6,7 +6,12 @@ let randomWord;
 export let randWordArr = [];
 
 /* All imports */
-import { handleGuessInput, createKeyboard, currentRow } from "./playerFunc.js";
+import {
+  handleGuessInput,
+  createKeyboard,
+  currentRow,
+  charArray,
+} from "./playerFunc.js";
 import { showHowToPlay, changeTheme } from "./buttons.js";
 // Sum for tracking dark theme
 let themeSum = 0;

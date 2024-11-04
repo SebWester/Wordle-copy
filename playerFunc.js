@@ -222,6 +222,7 @@ export function createKeyboard(word) {
     CHECK IF GUESS IS CORRECT 
 */
 
+// Button for colorblind mode on/off
 const testThisButton = document.getElementById("colorMode");
 let colormodeOn = false;
 console.log(colormodeOn);
@@ -237,7 +238,6 @@ function compareWordArrs(arr1, arr2) {
   */
   for (let i = 0; i < arr1.length; i++) {
     let fillRow = document.getElementById(rowId[currentRow]);
-    // let fillTile = document.getElementById(`${totalChars}`);
     let fillTile = fillRow ? fillRow.querySelectorAll(".tile")[i] : null;
 
     if (arr1[i] === arr2[i]) {
