@@ -255,6 +255,37 @@
   margin: 3px;
 }
 
+#winner {
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  top: 20%;
+  width: 200px;
+  border-radius: 6px;
+  background-color: rgba(225, 222, 222, 0.8);
+  padding: 10px;
+  font-size: 1.3em;
+  z-index: 1000;
+}
+
+#rightWord {
+  font-size: 2em;
+  font-weight: 700;
+  font-style: italic;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+#restart {
+  margin-top: 20px;
+  font-size: 0.9em;
+}
+
+#restart:hover {
+  cursor: pointer;
+}
+
 /* 
   --- Tile animations and keyframes here --- 
 */

@@ -6,8 +6,7 @@ const icons = document.querySelectorAll(".fa-xl");
 
 // All buttons
 const howToPlay = document.getElementById("howToPlay");
-const darkTheme = document.getElementById("darkTheme");
-const colorMode = document.getElementById("colorMode");
+
 const returnToGame = document.getElementById("returnBtn");
 
 /*

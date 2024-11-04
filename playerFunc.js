@@ -1,4 +1,7 @@
 const gameBoard = document.getElementById("gameBoard");
+const winnerDiv = document.getElementById("winner");
+const displayWord = document.getElementById("rightWord");
+const restartGame = document.getElementById("restart");
 
 // Fill this array with players guesses
 export let charArray = [];
@@ -63,6 +66,16 @@ export function handleGuessInput(word, wordList) {
       // TESTING checkWin func!  // <--- REMOVE WHEN DONE
       compareWordArrs(randWordArr, charArray, wordList);
 
+      // IF WINNING GAME
+      if (randWordArr.join("") === charArray.join("")) {
+        winnerDiv.style.display = "flex";
+        console.log("You win");
+        displayWord.textContent = `${randWordArr.join("")}`;
+        restartGame.addEventListener("click", () => {
+          winnerDiv.style.display = "none";
+        });
+      }
+
       charArray = [];
       totalChars = 0;
 
@@ -71,6 +84,12 @@ export function handleGuessInput(word, wordList) {
       totalChars = 0;
       charArray = [];
       console.log(currentRow); // <--- REMOVE WHEN DONE
+
+      // IF LOOSING GAME
+      if (currentRow === 6) {
+        console.log("You loose");
+        return;
+      }
     } else if (key.length === 1 && totalChars < word.length) {
       fillTile.innerText = key;
       fillTile.classList.add("charJump");
@@ -215,7 +234,7 @@ export function createKeyboard(word, wordList) {
       totalChars = 0;
       // Increment row for a new round
       currentRow++;
-      console.log(currentRow); // <--- REMOVE WHEN DONE
+      // console.log(currentRow); // <--- REMOVE WHEN DONE
     }
   });
 
@@ -248,7 +267,7 @@ function compareWordArrs(arr1, arr2, words) {
 
     let notRight = document.createElement("div");
     notRight.classList.add("tryAgain");
-    notRight.textContent = "Word not found. Try again";
+    notRight.textContent = "Word not found. Try again"; // <--- REMOVE WHEN DONE
 
     gameBoard.appendChild(notRight);
 
@@ -260,6 +279,7 @@ function compareWordArrs(arr1, arr2, words) {
     });
     totalChars = 0;
     currentRow--;
+
     return;
   }
 
