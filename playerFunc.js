@@ -60,7 +60,7 @@ export function handleGuessInput(word, wordList) {
       // Check if word is correct when user presses enter
       console.log("Check if players guess = random word"); // <--- REMOVE WHEN DONE
 
-      // TESTING checkWin func!
+      // TESTING checkWin func!  // <--- REMOVE WHEN DONE
       compareWordArrs(randWordArr, charArray, wordList);
 
       charArray = [];
@@ -227,10 +227,10 @@ export function createKeyboard(word, wordList) {
 */
 
 // Button for colorblind mode on/off
-const testThisButton = document.getElementById("colorMode");
+const colorButton = document.getElementById("colorMode");
 let colormodeOn = false;
 console.log(colormodeOn);
-testThisButton.addEventListener("click", () => {
+colorButton.addEventListener("click", () => {
   colormodeOn = !colormodeOn;
   console.log(colormodeOn);
 });
@@ -251,9 +251,15 @@ function compareWordArrs(arr1, arr2, words) {
     notRight.textContent = "Word not found. Try again";
 
     gameBoard.appendChild(notRight);
-    // currentRow--;
-    totalChars = 0;
 
+    let rows = document.getElementById(rowId[currentRow]);
+    let tiles = rows.querySelectorAll(".tile");
+
+    tiles.forEach((tile) => {
+      tile.textContent = "";
+    });
+    totalChars = 0;
+    currentRow--;
     return;
   }
 
