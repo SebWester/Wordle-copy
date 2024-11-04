@@ -292,3 +292,39 @@
     background-color: rgba(49, 228, 49, 0.7);
   }
 }
+
+.tileFlipBlue {
+  animation: blueFlip 1s linear forwards;
+}
+
+@keyframes blueFlip {
+  0% {
+    transform: rotateX(0deg);
+    background-color: transparent;
+  }
+  50% {
+    transform: rotateX(90deg);
+    background-color: transparent;
+  }
+  100% {
+    background-color: rgba(102, 174, 255, 0.7);
+  }
+}
+
+.tileFlipYellow {
+  animation: yellowFlip 1s linear forwards;
+}
+
+@keyframes yellowFlip {
+  0% {
+    transform: rotateX(0deg);
+    background-color: transparent;
+  }
+  50% {
+    transform: rotateX(90deg);
+    background-color: transparent;
+  }
+  100% {
+    background-color: rgba(255, 251, 11, 0.7);
+  }
+}

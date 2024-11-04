@@ -27,6 +27,7 @@ export function showHowToPlay() {
 /*
   Function for changing theme
 */
+
 export function changeTheme(sum) {
   const rows = document.querySelectorAll(".row");
 
