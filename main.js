@@ -3,6 +3,7 @@ const guessContainer = document.getElementById("guessContainer");
 
 // Variable and array for random word
 let randomWord;
+let allWords;
 export let randWordArr = [];
 
 /* All imports */
@@ -22,6 +23,7 @@ async function getRandomWord() {
   const data = await response.json();
   let randNum = Math.floor(Math.random() * data.length);
 
+  allWords = data;
   randomWord = data[randNum];
   for (let i = 0; i < randomWord.length; i++) {
     randWordArr.push(randomWord[i]);
@@ -64,18 +66,17 @@ async function main() {
     console.log(randomWord); // <--- REMOVE WHEN DONE
     console.log("randomWordArr:"); // <--- REMOVE WHEN DONE
     console.log(randWordArr); // <--- REMOVE WHEN DONE
+    // console.log(allWords); // <--- REMOVE WHEN DONE
 
     createRows(randomWord);
     createKeyboard(randomWord);
-    handleGuessInput(randomWord);
+    handleGuessInput(randomWord, allWords);
 
     showHowToPlay();
     // Change theme
     themeButton.addEventListener("click", () => {
       themeSum++;
       changeTheme(themeSum);
-      console.log(themeSum); // <--- REMOVE WHEN DONE
-      console.log(currentRow); // <--- REMOVE WHEN DONE
     });
   } catch (err) {
     console.log("Something went wrong: " + err);

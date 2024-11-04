@@ -1,3 +1,5 @@
+const gameBoard = document.getElementById("gameBoard");
+
 // Fill this array with players guesses
 export let charArray = [];
 // export let totalChars = 0;
@@ -32,7 +34,7 @@ const ignoreChars = [
 ];
 
 // Fill charArray with players guesses
-export function handleGuessInput(word) {
+export function handleGuessInput(word, wordList) {
   document.addEventListener("keydown", (event) => {
     const key = event.key;
     let fillRow = document.getElementById(rowId[currentRow]);
@@ -59,7 +61,7 @@ export function handleGuessInput(word) {
       console.log("Check if players guess = random word"); // <--- REMOVE WHEN DONE
 
       // TESTING checkWin func!
-      compareWordArrs(randWordArr, charArray);
+      compareWordArrs(randWordArr, charArray, wordList);
 
       charArray = [];
       totalChars = 0;
@@ -231,11 +233,26 @@ testThisButton.addEventListener("click", () => {
   console.log(colormodeOn);
 });
 
-function compareWordArrs(arr1, arr2) {
+function compareWordArrs(arr1, arr2, words) {
   /*
     arr1 = randomWarArr
-    arr2 = charArray
+    arr2 = charArr
+    words = allWords (main.js)
   */
+
+  let checkThisWord = charArray.join("");
+  if (!words.includes(checkThisWord)) {
+    console.log("Word not in list");
+
+    let notRight = document.createElement("div");
+    notRight.classList.add("tryAgain");
+    notRight.textContent = "Word not found. Try again";
+
+    gameBoard.appendChild(notRight);
+
+    return;
+  }
+
   for (let i = 0; i < arr1.length; i++) {
     let fillRow = document.getElementById(rowId[currentRow]);
     let fillTile = fillRow ? fillRow.querySelectorAll(".tile")[i] : null;

@@ -6,6 +6,40 @@
   background-color: whitesmoke;
 }
 
+.tryAgain {
+  position: absolute;
+  top: 30%;
+  left: 38%;
+  width: 350px;
+  font-size: 2em;
+  background-color: rgba(202, 202, 202, 0.7);
+
+  animation: shakeIt 2s linear forwards;
+}
+
+@keyframes shakeIt {
+  0% {
+    transform: translateX(5px);
+  }
+  5% {
+    transform: translateX(-5px);
+  }
+  10% {
+    transform: translateX(5px);
+  }
+  20% {
+    transform: translateX(-5px);
+  }
+  25% {
+    transform: translateX(0px);
+  }
+  100% {
+    color: transparent;
+    background-color: transparent;
+    display: none;
+  }
+}
+
 /* Info Box styling */
 #infoDiv {
   display: none;
