@@ -255,7 +255,7 @@
   margin: 3px;
 }
 
-#winner {
+#gameOver {
   position: absolute;
   display: none;
   flex-direction: column;

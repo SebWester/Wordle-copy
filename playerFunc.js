@@ -1,5 +1,6 @@
 const gameBoard = document.getElementById("gameBoard");
-const winnerDiv = document.getElementById("winner");
+const winnerDiv = document.getElementById("gameOver");
+const winOrLoose = document.getElementById("msg");
 const displayWord = document.getElementById("rightWord");
 const restartGame = document.getElementById("restart");
 
@@ -70,7 +71,9 @@ export function handleGuessInput(word, wordList) {
       // IF WINNING GAME
       if (randWordArr.join("") === charArray.join("")) {
         winnerDiv.style.display = "flex";
+        winnerDiv.style.backgroundColor = "rgba(20, 240, 20, 0.5)";
         console.log("You win");
+        winOrLoose.textContent = "You win!";
         displayWord.textContent = `${randWordArr.join("")}`;
         restartGame.addEventListener("click", () => {
           winnerDiv.style.display = "none";
@@ -98,6 +101,24 @@ export function handleGuessInput(word, wordList) {
 
       // IF LOOSING GAME
       if (currentRow === 6) {
+        winnerDiv.style.display = "flex";
+        winnerDiv.style.backgroundColor = "rgba(240, 20, 20, 0.8)";
+
+        console.log("You win");
+        winOrLoose.textContent = "You loose!";
+        displayWord.textContent = `${randWordArr.join("")}`;
+        restartGame.addEventListener("click", () => {
+          winnerDiv.style.display = "none";
+          gameWon = !gameWon;
+
+          // Reseting rows and character Array
+          currentRow = 0;
+          totalChars = 0;
+
+          if (gameWon) {
+            location.reload();
+          }
+        });
         console.log("You loose");
         return;
       }
@@ -239,6 +260,27 @@ export function createKeyboard(word, wordList) {
       // Check all letters
       compareWordArrs(randWordArr, charArray, wordList);
 
+      if (randWordArr.join("") === charArray.join("")) {
+        winnerDiv.style.display = "flex";
+        winnerDiv.style.backgroundColor = "rgba(20, 240, 20, 0.5)";
+        console.log("You win");
+        winOrLoose.textContent = "You win!";
+        displayWord.textContent = `${randWordArr.join("")}`;
+        restartGame.addEventListener("click", () => {
+          winnerDiv.style.display = "none";
+          gameWon = !gameWon;
+
+          // Reseting rows and character Array
+          currentRow = 0;
+          totalChars = 0;
+
+          if (gameWon) {
+            location.reload();
+          }
+        });
+        return;
+      }
+
       // Check if word is correct when user presses enter
       console.log("Check if players guess = random word"); // <--- REMOVE WHEN DONE
       charArray = [];
@@ -246,6 +288,29 @@ export function createKeyboard(word, wordList) {
       // Increment row for a new round
       currentRow++;
       // console.log(currentRow); // <--- REMOVE WHEN DONE
+
+      if (currentRow === 6) {
+        winnerDiv.style.display = "flex";
+        winnerDiv.style.backgroundColor = "rgba(240, 20, 20, 0.8)";
+
+        console.log("You win");
+        winOrLoose.textContent = "You loose!";
+        displayWord.textContent = `${randWordArr.join("")}`;
+        restartGame.addEventListener("click", () => {
+          winnerDiv.style.display = "none";
+          gameWon = !gameWon;
+
+          // Reseting rows and character Array
+          currentRow = 0;
+          totalChars = 0;
+
+          if (gameWon) {
+            location.reload();
+          }
+        });
+        console.log("You loose");
+        return;
+      }
     }
   });
 
