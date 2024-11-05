@@ -12,6 +12,7 @@ import { rowId, randWordArr } from "./main.js";
 // import { compareWordArrs } from "./checkWin.js";
 
 let totalChars = 0;
+let gameWon = false;
 
 // Ignore these keys
 const ignoreNums = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
@@ -73,7 +74,17 @@ export function handleGuessInput(word, wordList) {
         displayWord.textContent = `${randWordArr.join("")}`;
         restartGame.addEventListener("click", () => {
           winnerDiv.style.display = "none";
+          gameWon = !gameWon;
+
+          // Reseting rows and character Array
+          currentRow = 0;
+          totalChars = 0;
+
+          if (gameWon) {
+            location.reload();
+          }
         });
+        return;
       }
 
       charArray = [];
