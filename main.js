@@ -53,16 +53,6 @@ async function main() {
   try {
     await getRandomWord();
 
-    /*
-        ALL CODE GOES HERE
-    */
-
-    // TESTING CODE
-    console.log(randomWord); // <--- REMOVE WHEN DONE
-    console.log("randomWordArr:"); // <--- REMOVE WHEN DONE
-    console.log(randWordArr); // <--- REMOVE WHEN DONE
-    // console.log(allWords); // <--- REMOVE WHEN DONE
-
     createRows(randomWord);
     createKeyboard(randomWord, allWords);
     handleGuessInput(randomWord, allWords);

@@ -6,11 +6,9 @@ const restartGame = document.getElementById("restart");
 
 // Fill this array with players guesses
 export let charArray = [];
-// export let totalChars = 0;
 export let currentRow = 0; // <-- Max 6 rows
 
 import { rowId, randWordArr } from "./main.js";
-// import { compareWordArrs } from "./checkWin.js";
 
 let totalChars = 0;
 let gameWon = false;
@@ -43,7 +41,6 @@ export function handleGuessInput(word, wordList) {
   document.addEventListener("keydown", (event) => {
     const key = event.key;
     let fillRow = document.getElementById(rowId[currentRow]);
-    // let fillTile = document.getElementById(`${totalChars}`);
     let fillTile = fillRow
       ? fillRow.querySelectorAll(".tile")[totalChars]
       : null;
@@ -63,7 +60,6 @@ export function handleGuessInput(word, wordList) {
       }
     } else if (key === "Enter" && totalChars === word.length) {
       // Check if word is correct when user presses enter
-      console.log("Check if players guess = random word"); // <--- REMOVE WHEN DONE
 
       // TESTING checkWin func!  // <--- REMOVE WHEN DONE
       compareWordArrs(randWordArr, charArray, wordList);
@@ -97,14 +93,12 @@ export function handleGuessInput(word, wordList) {
       currentRow++;
       totalChars = 0;
       charArray = [];
-      console.log(currentRow); // <--- REMOVE WHEN DONE
 
       // IF LOOSING GAME
       if (currentRow === 6) {
         winnerDiv.style.display = "flex";
         winnerDiv.style.backgroundColor = "rgba(240, 20, 20, 0.8)";
 
-        console.log("You win");
         winOrLoose.textContent = "You loose!";
         displayWord.textContent = `${randWordArr.join("")}`;
         restartGame.addEventListener("click", () => {
@@ -119,7 +113,7 @@ export function handleGuessInput(word, wordList) {
             location.reload();
           }
         });
-        console.log("You loose");
+
         return;
       }
     } else if (key.length === 1 && totalChars < word.length) {
@@ -128,7 +122,6 @@ export function handleGuessInput(word, wordList) {
 
       charArray.push(key.toLowerCase()); // Making sure is lowercase before pushed
       totalChars++;
-      console.log(charArray); // <--- REMOVE WHEN DONE
     }
   });
 }
@@ -159,7 +152,6 @@ export function createKeyboard(word, wordList) {
     // Pretty much same code as in playerFunc.js
     alphaKey.addEventListener("click", () => {
       let fillRow = document.getElementById(rowId[currentRow]);
-      // let fillTile = document.getElementById(`${totalChars}`);
       let fillTile = fillRow
         ? fillRow.querySelectorAll(".tile")[totalChars]
         : null;
@@ -169,7 +161,6 @@ export function createKeyboard(word, wordList) {
         fillTile.classList.add("charJump");
         charArray.push(allKeys[0][i]);
         totalChars++;
-        console.log(charArray); // <--- REMOVE WHEN DONE
       }
     });
 
@@ -193,7 +184,6 @@ export function createKeyboard(word, wordList) {
         fillTile.classList.add("charJump");
         charArray.push(allKeys[1][i]);
         totalChars++;
-        console.log(charArray); // <--- REMOVE WHEN DONE
       } else {
         return;
       }
@@ -241,7 +231,6 @@ export function createKeyboard(word, wordList) {
         fillTile.classList.add("charJump");
         charArray.push(allKeys[2][i]);
         totalChars++;
-        console.log(charArray); // <--- REMOVE WHEN DONE
       } else {
         return;
       }
@@ -282,12 +271,10 @@ export function createKeyboard(word, wordList) {
       }
 
       // Check if word is correct when user presses enter
-      console.log("Check if players guess = random word"); // <--- REMOVE WHEN DONE
       charArray = [];
       totalChars = 0;
       // Increment row for a new round
       currentRow++;
-      // console.log(currentRow); // <--- REMOVE WHEN DONE
 
       if (currentRow === 6) {
         winnerDiv.style.display = "flex";
@@ -324,7 +311,7 @@ export function createKeyboard(word, wordList) {
 // Button for colorblind mode on/off
 const colorButton = document.getElementById("colorMode");
 let colormodeOn = false;
-console.log(colormodeOn);
+
 colorButton.addEventListener("click", () => {
   colormodeOn = !colormodeOn;
   console.log(colormodeOn);
@@ -339,11 +326,9 @@ function compareWordArrs(arr1, arr2, words) {
 
   let checkThisWord = charArray.join("");
   if (!words.includes(checkThisWord)) {
-    console.log("Word not in list");
-
     let notRight = document.createElement("div");
     notRight.classList.add("tryAgain");
-    notRight.textContent = "Word not found. Try again"; // <--- REMOVE WHEN DONE
+    notRight.textContent = "Word not found. Try again";
 
     gameBoard.appendChild(notRight);
 
@@ -364,9 +349,6 @@ function compareWordArrs(arr1, arr2, words) {
     let fillTile = fillRow ? fillRow.querySelectorAll(".tile")[i] : null;
 
     if (arr1[i] === arr2[i]) {
-      console.log("index: " + i); // <--- REMOVE WHEN DONE
-      console.log("Letter in random word AND right index \n"); // <--- REMOVE WHEN DONE
-
       if (!colormodeOn) {
         fillTile.classList.add("tileFlipGreen");
       } else if (colormodeOn) {
@@ -374,17 +356,12 @@ function compareWordArrs(arr1, arr2, words) {
       }
     } else {
       if (arr1.includes(arr2[i])) {
-        console.log("index: " + i); // <--- REMOVE WHEN DONE
-        console.log("Letter in random word BUT not right index\n"); // <--- REMOVE WHEN DONE
-
         if (!colormodeOn) {
           fillTile.classList.add("tileFlipOrange");
         } else if (colormodeOn) {
           fillTile.classList.add("tileFlipYellow");
         }
       } else {
-        console.log("index: " + i); // <--- REMOVE WHEN DONE
-        console.log("Letter not in random word\n"); // <--- REMOVE WHEN DONE
         fillTile.classList.add("tileFlipGray");
         continue;
       }
